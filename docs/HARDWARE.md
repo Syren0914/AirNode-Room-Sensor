@@ -64,4 +64,4 @@ SW1 through SW4 connect their GPIO signal to ground when pressed. Firmware shoul
 
 ## USB-C programming
 
-The SuperMini's native USB data pins are GPIO18 (D−) and GPIO19 (D+), but the current module footprint does not expose them on the header rows. The enclosure connector therefore acts as an internal USB extension to a male USB-C breakout plugged into the SuperMini. See [USB-C-extension.md](USB-C-extension.md).
+The SuperMini's native USB data pins are GPIO18 (D−) and GPIO19 (D+), but the current module footprint does not expose them on the header rows. The enclosure connector therefore acts as an internal USB extension to a male USB-C breakout plugged into the SuperMini. A 16 mm illuminated latching switch interrupts VBUS so one press powers the device and the next turns it off. Ground, D+, and D− bypass the switch. See [USB-C-extension.md](USB-C-extension.md).

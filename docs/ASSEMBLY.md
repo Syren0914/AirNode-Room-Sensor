@@ -18,7 +18,7 @@ This guide is for prototype assembly. The project is unfinished, so inspect the 
 5. Install the TFT connector and four button switches.
 6. Mount the SHT40 on the front and the SCD40 and buzzer on the back, following the PCB markings.
 7. Install SGP41 and SPS30 connectors if those sensors will be used.
-8. Wire the external USB-C extension according to [USB-C-extension.md](USB-C-extension.md).
+8. Wire the external USB-C extension and illuminated latching power switch according to [USB-C-extension.md](USB-C-extension.md). Verify the switch terminals with a continuity meter because terminal positions vary by manufacturer.
 9. Perform the staged tests in [BRINGUP.md](BRINGUP.md) before closing the enclosure.
 
 ## Home-milled PCB notes

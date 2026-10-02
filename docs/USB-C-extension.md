@@ -8,7 +8,7 @@ The enclosure-mounted female USB-C breakout carries USB 2.0 power and data to a 
 
 | External female breakout | Internal male breakout |
 | --- | --- |
-| VBUS | VBUS, through the power switch if fitted |
+| VBUS | Switch COM; switch NO then connects to internal VBUS |
 | GND | GND |
 | D+ | D+ |
 | D- | D- |
@@ -16,6 +16,23 @@ The enclosure-mounted female USB-C breakout carries USB 2.0 power and data to a 
 | CC2 | 5.1 kOhm to GND |
 
 Do not tie CC1 and CC2 directly together. Each configuration-channel pin needs its own pull-down resistor for standards-compliant USB-C device detection. Keep D+ and D- short, routed together, and away from the buzzer and switching-current paths.
+
+## Latching illuminated power switch
+
+The enclosure uses a 16 mm push-on/push-off latching switch with a 3–6 V LED ring. It is an off-board, wired component. Only the USB 5 V VBUS conductor passes through the switching contacts:
+
+```text
+External USB-C VBUS -> switch COM
+Switch NO           -> internal male USB-C VBUS
+External USB-C GND  -> internal GND and switch LED-
+Switch NO           -> switch LED+
+External D+         -> internal D+
+External D-         -> internal D-
+```
+
+With this wiring, one press latches the contacts closed and powers AirNode; the next press opens them and turns it off. Connecting LED+ to the switched side makes the ring illuminate only while AirNode is on. Ground and the USB data lines remain continuous and are not switched.
+
+The terminal arrangement is not standardized. Identify COM, NO, NC, LED+, and LED- from the supplied diagram or with a continuity meter before wiring. Leave NC unused. Confirm that the contact rating safely exceeds the complete device's measured 5 V current.
 
 ## Breakout dimensions and pad spacing
 
@@ -29,5 +46,6 @@ The electrical solder-pad spacing is therefore deliberately marked **unverified*
 2. Verify there is no VBUS-to-GND short.
 3. Verify each CC pin measures approximately 5.1 kOhm to GND.
 4. Power from a current-limited USB source.
-5. Confirm the ESP32-C3 USB serial/JTAG device enumerates.
-6. Test firmware flashing before closing the enclosure.
+5. Confirm that one press latches power on, the LED ring illuminates, and the next press removes power.
+6. Confirm the ESP32-C3 USB serial/JTAG device enumerates while the switch is on.
+7. Test firmware flashing before closing the enclosure.
