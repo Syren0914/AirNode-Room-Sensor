@@ -27,6 +27,20 @@ AirNode is an ESP32-C3 based indoor air-quality monitor designed for a compact 7
 - `manufacturing/gerbers/` — generated fabrication outputs
 - `docs/USB-C-extension.md` — external USB-C flashing connection notes
 
+## Enclosure preview
+
+### Main enclosure
+
+[![AirNode main enclosure](docs/images/enclosure-v2.png)](V.2.3mf)
+
+[Download the main enclosure 3MF](V.2.3mf)
+
+### Cover insert
+
+[![AirNode cover insert](docs/images/enclosure-cover.png)](cover.3mf)
+
+[Download the cover 3MF](cover.3mf)
+
 ## Current hardware status
 
 This is a prototype revision intended for validation before sale or production.
