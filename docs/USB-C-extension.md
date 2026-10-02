@@ -34,6 +34,19 @@ With this wiring, one press latches the contacts closed and powers AirNode; the 
 
 The terminal arrangement is not standardized. Identify COM, NO, NC, LED+, and LED- from the supplied diagram or with a continuity meter before wiring. Leave NC unused. Confirm that the contact rating safely exceeds the complete device's measured 5 V current.
 
+### KiCad PCB connection: J_PWR
+
+The back of the PCB now includes the four-pin `J_PWR` wiring header:
+
+| J_PWR pad | Connect to |
+| --- | --- |
+| 1 | External USB-C VBUS |
+| 2 | Latching switch COM |
+| 3 | Latching switch NO and LED+ |
+| 4 | External USB-C GND and LED− |
+
+Pads 1 and 2 are connected by a wide raw-VBUS trace. Pad 3 feeds the board's `VIN (5.0v)` net only after the switch latches closed. Pad 4 connects to board ground. USB D+ and D− still run directly between the external female and internal male USB-C breakouts because the SuperMini module does not expose GPIO18 and GPIO19 on its headers.
+
 ## Breakout dimensions and pad spacing
 
 The enclosure model supplied for the project indicates an approximate module body envelope of 8.5 mm × 11.5 mm. Web searches found many visually similar generic 16-pin USB-C breakout boards, but they use different PCB sizes and pad arrangements. No manufacturer drawing could be matched confidently to the exact board shown in the project images.

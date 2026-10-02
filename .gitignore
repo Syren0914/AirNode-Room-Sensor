@@ -11,6 +11,7 @@ _restore_backup_*/
 routing-review/
 SENSOR_DRILL/
 Room Sensor.before-thickening.kicad_pcb
+Room Sensor.before-power-switch.kicad_pcb
 
 # Unrelated local files
 linkedin_trip_photos/

@@ -13,6 +13,7 @@ H1 H2,2,M3 mounting hole,3.2 mm drill,MountingHole_3.2mm_M3,Required,Use enclosu
 JUSB-EXT,1,External USB-C receptacle breakout,16-pin USB-C female breakout with VBUS D- D+ GND CC1 CC2,Wired enclosure module,Planned,Measured body approximately 8.5 x 11.5 mm; exact pad geometry unverified
 RCC1 RCC2,2,USB-C configuration resistor,5.1 kOhm 1 percent,Installed on breakout or inline,Required for USB-C,One resistor from CC1 to GND and one from CC2 to GND
 JUSB-MALE,1,Internal USB-C male breakout,USB 2.0 VBUS D- D+ GND breakout,Wired to external receptacle,Required for external flashing,Plugs into the SuperMini USB-C receptacle
-SW-PWR,1,Illuminated latching power switch,16 mm push-on push-off switch with 3-6 V LED ring,Wired inline with USB VBUS,Required,Use COM and NO for 5 V; LED from switched 5 V to GND; verify terminal pinout
+SW-PWR,1,Illuminated latching power switch,16 mm push-on push-off switch with 3-6 V LED ring,PCB J_PWR pads 2 3 4,Required,COM to pad 2; NO and LED+ to pad 3; LED- to pad 4; verify terminal pinout
+J_PWR,1,USB and latching-switch wiring header,1x04 2.54 mm through-hole,Back side near lower edge,Required,Pad 1 USB VBUS; pad 2 switch COM; pad 3 switch NO and LED+; pad 4 GND and LED-
 PCB,1,Two-layer printed circuit board,70 x 100 mm 8 mm corner radius,Project Gerbers,Required,Prototype may be CNC milled or fabricated
 ENC1,1,Printed enclosure,V.2.3mf,FDM printed,Required,Verify port and display alignment with a physical test print
