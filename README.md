@@ -21,7 +21,7 @@ AirNode is an ESP32-C3 based indoor air-quality monitor designed for a compact 7
 - `Room Sensor.kicad_pcb` — KiCad PCB layout
 - `Room Sensor.kicad_pro` — KiCad project settings
 - `RoomSensor_Libraries/` — project-specific symbols and footprints
-- `V.2.3mf` and `cover.3mf` — enclosure models
+- `V.2.3mf` — printable enclosure model
 - `Room Sensor.step` — PCB 3D export
 - `BOM.csv` — bill of materials
 - `manufacturing/gerbers/` — generated fabrication outputs
@@ -34,12 +34,6 @@ AirNode is an ESP32-C3 based indoor air-quality monitor designed for a compact 7
 [![AirNode main enclosure](docs/images/enclosure-v2.png)](V.2.3mf)
 
 [Download the main enclosure 3MF](V.2.3mf)
-
-### Cover insert
-
-[![AirNode cover insert](docs/images/enclosure-cover.png)](cover.3mf)
-
-[Download the cover 3MF](cover.3mf)
 
 ## Current hardware status
 
