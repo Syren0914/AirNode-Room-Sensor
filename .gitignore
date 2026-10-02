@@ -1,0 +1,23 @@
+# KiCad
+*.kicad_prl
+*.lck
+*.bak
+*.tmp
+*-backups/
+.history/
+_restore_backup_*/
+
+# Local review and intermediate files
+routing-review/
+SENSOR_DRILL/
+Room Sensor.before-thickening.kicad_pcb
+
+# Unrelated local files
+linkedin_trip_photos/
+physics_exam_4x6_card.pdf
+.step
+.stl
+
+# OS
+.DS_Store
+Thumbs.db

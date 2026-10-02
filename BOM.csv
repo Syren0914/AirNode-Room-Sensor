@@ -1,0 +1,18 @@
+Reference,Qty,Description,Value or model,Footprint or connection,Status,Notes
+U2,1,Wi-Fi/BLE microcontroller module,ESP32-C3 SuperMini,ESP32-C3_SUPERMINI_TH:MODULE_ESP32-C3_SUPERMINI_TH,Required,Current module USB port remains the programming interface
+TFT1,1,1.28-inch round SPI TFT display,GC9A01 240x240,1x7 2.54 mm header,Required,Confirm the purchased module pin order and physical outline
+SHT40,1,Temperature and humidity breakout,SHT40 module,1x4 2.54 mm header,Required,Front-side module
+SCD40,1,Photoacoustic CO2 breakout,SCD40 module,1x4 2.54 mm header,Optional,Back-side module; SCD41 is generally pin-compatible but firmware settings may differ
+SGP41,1,VOC and NOx breakout,SGP41 module,1x5 2.54 mm header,Required,Use 3.3 V compatible breakout
+SPS30,1,Particulate-matter sensor,Sensirion SPS30,1x5 2.54 mm header,Required,Confirm cable pin order against the sensor datasheet
+BZ1,1,Passive piezo buzzer,12 mm diameter 7.6 mm lead spacing,Buzzer_Beeper:Buzzer_12x9.5RM7.6,Required,Mounted on back; use passive piezo suitable for 3.3 V drive
+SW1 SW2 SW3 SW4,4,Momentary push button,Cherry MX compatible,SW_Cherry_MX_1.00u_PCB,Required,Up Down Select Back
+R1,1,Through-hole resistor,10 kOhm 1/4 W,DIN0207 7.62 mm pitch,Required,GPIO2 boot pull-up
+JP1,1,Insulated wire link,12.70 mm pitch,Wire_Link_P12.70mm,Required,Install insulated jumper wire
+H1 H2,2,M3 mounting hole,3.2 mm drill,MountingHole_3.2mm_M3,Required,Use enclosure-compatible hardware
+JUSB-EXT,1,External USB-C receptacle breakout,16-pin USB-C female breakout with VBUS D- D+ GND CC1 CC2,Wired enclosure module,Planned,Measured body approximately 8.5 x 11.5 mm; exact pad geometry unverified
+RCC1 RCC2,2,USB-C configuration resistor,5.1 kOhm 1 percent,Installed on breakout or inline,Required for USB-C,One resistor from CC1 to GND and one from CC2 to GND
+JUSB-MALE,1,Internal USB-C male breakout,USB 2.0 VBUS D- D+ GND breakout,Wired to external receptacle,Required for external flashing,Plugs into the SuperMini USB-C receptacle
+SW-PWR,1,Power switch,SPST or suitable panel switch,Inline with USB VBUS,Optional,Switch 5 V only; leave ground connected
+PCB,1,Two-layer printed circuit board,70 x 100 mm 8 mm corner radius,Project Gerbers,Required,Prototype may be CNC milled or fabricated
+ENC1,1,Printed enclosure,V.2.3mf,FDM printed,Required,Verify port and display alignment with a physical test print
