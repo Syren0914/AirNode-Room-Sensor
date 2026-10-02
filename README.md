@@ -1,62 +1,95 @@
 # AirNode Room Sensor
 
-AirNode is an ESP32-C3 based indoor air-quality monitor designed for a compact 70 mm × 100 mm enclosure. The board combines local display and alarm controls with connectors for temperature, humidity, carbon dioxide, particulate matter, VOC, and NOx sensing.
+![AirNode prototype](docs/images/airnode-hero.jpg)
 
-## Features
+> [!WARNING]
+> **AirNode is an ongoing, unfinished prototype.** The PCB, enclosure, firmware, pin assignments, and documentation may change. This revision has not completed long-term validation, calibration, or product safety testing and is not production ready.
 
-- ESP32-C3 SuperMini controller with Wi-Fi and Bluetooth LE
-- 1.28-inch round SPI TFT connection
-- SHT40 temperature and humidity connection
-- SCD40 carbon-dioxide connection
-- SGP41 VOC and NOx connection
-- SPS30 particulate-matter connection
-- Passive piezo alarm on GPIO20
-- Four user buttons; Select uses GPIO9
-- Two-layer PCB with a 70 mm × 100 mm rounded outline
-- Printable enclosure source in `V.2.3mf`
+AirNode is an ESP32-C3 based indoor air-quality monitor in a compact 70 mm × 100 mm enclosure. It combines a round color display, four buttons, an audible alarm, and connections for environmental sensor modules.
+
+## Current capabilities
+
+- ESP32-C3 SuperMini with Wi-Fi and Bluetooth LE
+- 1.28-inch round SPI TFT
+- SHT40 temperature and humidity sensor
+- SCD40 carbon-dioxide sensor connection
+- SGP41 VOC and NOx sensor connection
+- SPS30 particulate-matter sensor connection
+- Back-mounted passive piezo buzzer on GPIO20
+- Four buttons: Up, Down, Select, and Back
+- Two-layer 70 mm × 100 mm PCB with 8 mm corner radii
+- 3D-printable enclosure source
+
+## Project status
+
+This repository records a working prototype and the next custom PCB revision. The photographed device uses development modules and point-to-point wiring; the KiCad design consolidates those connections onto a PCB.
+
+| Area | Status |
+| --- | --- |
+| Schematic ERC | Pass: 0 violations |
+| PCB connectivity | Pass: 0 unconnected items |
+| PCB DRC | No shorts or clearance violations; one intentional dangling-via warning at the TFT CS layer transition |
+| Enclosure | Prototype printed and assembled; PCB fit still requires physical verification |
+| Firmware | Working prototype shown; source has not been added to this repository yet |
+| Sensor calibration | In progress |
+| Production testing | Not started |
+
+## Documentation
+
+- [Hardware and pin assignments](docs/HARDWARE.md)
+- [Assembly guide](docs/ASSEMBLY.md)
+- [First power-on and validation](docs/BRINGUP.md)
+- [Firmware status and requirements](docs/FIRMWARE.md)
+- [Enclosure and mechanical fit](docs/ENCLOSURE.md)
+- [External USB-C programming connection](docs/USB-C-extension.md)
+- [Bill of materials](BOM.csv)
+- [Change log](CHANGELOG.md)
 
 ## Repository contents
 
-- `Room Sensor.kicad_sch` — KiCad schematic
-- `Room Sensor.kicad_pcb` — KiCad PCB layout
-- `Room Sensor.kicad_pro` — KiCad project settings
-- `RoomSensor_Libraries/` — project-specific symbols and footprints
-- `V.2.3mf` — printable enclosure model
+- `Room Sensor.kicad_pro` — KiCad project
+- `Room Sensor.kicad_sch` — schematic source
+- `Room Sensor.kicad_pcb` — PCB layout source
+- `RoomSensor_Libraries/` — project symbols and footprints
+- `V.2.3mf` — printable enclosure source
 - `Room Sensor.step` — PCB 3D export
 - `BOM.csv` — bill of materials
-- `manufacturing/gerbers/` — generated fabrication outputs
-- `docs/USB-C-extension.md` — external USB-C flashing connection notes
+- `manufacturing/gerbers/` — fabrication outputs for the current revision
 
-## Enclosure preview
+Open `Room Sensor.kicad_pro` with KiCad 10 or newer. Review the schematic, PCB, and fabrication files together before ordering boards because the project remains under development.
 
-### Main enclosure
+## Prototype gallery
 
-[![AirNode main enclosure](docs/images/enclosure-v2.png)](V.2.3mf)
+### Assembled enclosure
 
-[Download the main enclosure 3MF](V.2.3mf)
+![AirNode enclosure prototype](docs/images/airnode-product-angle.jpg)
 
-## Current hardware status
+### Working development prototype
 
-This is a prototype revision intended for validation before sale or production.
+![AirNode displaying live sensor data](docs/images/airnode-working-prototype.jpg)
 
-- ERC: 0 violations
-- PCB connectivity: 0 unconnected items
-- PCB DRC: no shorts or clearance violations; one intentional dangling-via warning remains at the TFT CS layer transition
-- Board outline: 70 mm × 100 mm with 8 mm corner radius
-- TFT1 is shifted 1 mm right and 2 mm upward from its earlier location
-- BZ1 is mounted on the back side
-- SHT40 is on the front; SCD40 is on the back
+### Internal development build
 
-Before ordering a production batch, verify all physical module outlines, enclosure alignment, airflow, USB wiring, and sensor readings with an assembled prototype.
+These photos show development wiring and module placement. They do not represent the final PCB assembly.
 
-## USB-C programming
+| Open prototype | Assembly in progress |
+| --- | --- |
+| ![Open AirNode prototype](docs/images/airnode-prototype-internals.jpg) | ![AirNode assembly in progress](docs/images/airnode-prototype-assembly.jpg) |
 
-The ESP32-C3 native USB interface uses GPIO18 for D− and GPIO19 for D+. The current SuperMini footprint does not expose those pins on its headers. The enclosure USB-C receptacle therefore connects through a short internal USB extension to a male USB-C breakout plugged into the SuperMini. See `docs/USB-C-extension.md`.
+## Enclosure files
 
-## Opening the project
+[![AirNode enclosure render](docs/images/enclosure-v2.png)](V.2.3mf)
 
-Open `Room Sensor.kicad_pro` with KiCad 10 or newer. The project uses the included symbol and footprint tables.
+[Download `V.2.3mf`](V.2.3mf)
+
+## Before building
+
+1. Read the [hardware notes](docs/HARDWARE.md) and confirm that your modules match the listed pin order and voltage.
+2. Verify the exact dimensions and pad spacing of every purchased breakout board. Visually similar modules often differ.
+3. Inspect the fabrication files and run ERC and DRC with your installed KiCad version.
+4. Assemble and test one prototype before ordering multiple boards.
+5. Follow the staged checks in the [bring-up guide](docs/BRINGUP.md).
 
 ## License
 
-Hardware design files are released under CERN Open Hardware Licence Version 2 — Strongly Reciprocal. See `LICENSE`.
+Hardware design files are released under the CERN Open Hardware Licence Version 2 — Strongly Reciprocal. See [LICENSE](LICENSE).
