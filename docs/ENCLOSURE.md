@@ -19,7 +19,7 @@ The current PCB places TFT1 1 mm to the right and 2 mm upward relative to the ea
 
 ## USB-C opening
 
-The external female USB-C breakout sits near the lower edge beneath the SHT40 area and connects internally to the ESP32-C3 SuperMini. The example breakout was measured in CAD at approximately 8.5 mm × 11.5 mm, but its exact pad spacing is unverified. Measure the physical part with calipers before changing the PCB or enclosure.
+`J_USB` is a GCT USB4125-03-C receptacle mounted on the rear of the PCB at the lower board edge. The footprint places the connector mating edge on the 100 mm board boundary. Match the enclosure opening to the manufacturer drawing and verify the first assembled board before printing a production enclosure batch.
 
 Provide clearance for:
 

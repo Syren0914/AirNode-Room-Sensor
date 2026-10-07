@@ -1989,7 +1989,7 @@
 		)
 		(uuid "613c9fc9-b2c9-42aa-bbdb-28fe6f5b1695")
 	)
-	(text "Power flags represent the SuperMini USB supply and onboard 3.3 V regulator.\nPCB J_PWR: 1=USB VBUS, 2=latching switch COM, 3=switch NO + LED+, 4=GND + LED-.\nPads 1-2 are linked on PCB; switched pad 3 feeds VIN. USB D+/D- bypass J_PWR."
+	(text "Power flags represent the SuperMini USB supply and onboard 3.3 V regulator.\nPCB J_USB is a GCT USB4125 board-mounted 5 V power input; R_CC1/R_CC2 are 5.1 kOhm CC pull-downs.\nJ_PWR: 1=raw VBUS, 2=latching switch COM, 3=switch NO + LED+, 4=GND + LED-. Pads 1-2 are linked; switched pad 3 feeds VIN.\nJ_USB is power-only. Program through the ESP32-C3 SuperMini USB-C socket."
 		(exclude_from_sim no)
 		(at 111.76 161.29 0)
 		(effects

@@ -41,7 +41,7 @@ This repository records a working prototype and the next custom PCB revision. Th
 - [First power-on and validation](docs/BRINGUP.md)
 - [Firmware status and requirements](docs/FIRMWARE.md)
 - [Enclosure and mechanical fit](docs/ENCLOSURE.md)
-- [External USB-C programming connection](docs/USB-C-extension.md)
+- [Board-mounted USB-C power input](docs/USB-C-extension.md)
 - [Bill of materials](BOM.csv)
 - [Change log](CHANGELOG.md)
 

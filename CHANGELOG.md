@@ -4,6 +4,9 @@ This project is under active development. Entries describe design progress and d
 
 ## Unreleased
 
+- Added a rear, board-mounted GCT USB4125-03-C USB-C power receptacle with dual 5.1 kOhm CC pull-downs and rerouted the latching-switch power path.
+- Documented that firmware flashing remains on the ESP32-C3 SuperMini USB-C socket.
+
 - Added a two-layer 70 mm × 100 mm PCB outline with 8 mm corner radii.
 - Increased trace widths for home PCB fabrication where routing clearance permits.
 - Added a passive piezo buzzer on GPIO20 and moved it to the back of the PCB.

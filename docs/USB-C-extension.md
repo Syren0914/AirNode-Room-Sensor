@@ -1,64 +1,33 @@
-# External USB-C extension
+# Board-mounted USB-C power input
 
-## Purpose
+## Implemented connector
 
-The enclosure-mounted female USB-C breakout carries USB 2.0 power and data to a short internal male USB-C breakout plugged into the ESP32-C3 SuperMini. This preserves firmware flashing and serial monitoring without modifying the SuperMini.
+The PCB now carries `J_USB`, a GCT USB4125-03-C USB-C receptacle, on the rear lower edge. It is a six-contact, power-only receptacle with VBUS, GND, CC1, and CC2 contacts. Its footprint is `Connector_USB:USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal`.
 
-## Wiring
+`R_CC1` and `R_CC2` are separate 5.1 kOhm, 1% 0805 pull-downs from CC1 and CC2 to ground. Do not join the two CC pins directly.
 
-| External female breakout | Internal male breakout |
+## Latching power switch
+
+The enclosure uses a 16 mm push-on/push-off latching switch with a 3–6 V LED ring. Wire it to `J_PWR` as follows:
+
+| J_PWR pad | Connection |
 | --- | --- |
-| VBUS | Switch COM; switch NO then connects to internal VBUS |
-| GND | GND |
-| D+ | D+ |
-| D- | D- |
-| CC1 | 5.1 kOhm to GND |
-| CC2 | 5.1 kOhm to GND |
+| 1 | Raw VBUS from `J_USB` |
+| 2 | Switch COM |
+| 3 | Switch NO and LED+ |
+| 4 | GND and LED− |
 
-Do not tie CC1 and CC2 directly together. Each configuration-channel pin needs its own pull-down resistor for standards-compliant USB-C device detection. Keep D+ and D- short, routed together, and away from the buzzer and switching-current paths.
+Pads 1 and 2 are linked by the PCB. When the switch latches, pad 3 receives 5 V and feeds the board `VIN (5.0v)` net. The LED ring therefore lights only while AirNode is powered. Leave the switch NC terminal unused. Verify COM, NO, NC, LED+, and LED− with the switch drawing or a continuity meter because terminal positions vary.
 
-## Latching illuminated power switch
+## Programming limitation
 
-The enclosure uses a 16 mm push-on/push-off latching switch with a 3–6 V LED ring. It is an off-board, wired component. Only the USB 5 V VBUS conductor passes through the switching contacts:
+`J_USB` is power-only and cannot carry firmware data. The USB4125-03-C has no D+ or D− contacts, and the current ESP32-C3 SuperMini footprint does not expose its native USB pins GPIO18 and GPIO19. Program and monitor the board through the USB-C socket on the SuperMini.
 
-```text
-External USB-C VBUS -> switch COM
-Switch NO           -> internal male USB-C VBUS
-External USB-C GND  -> internal GND and switch LED-
-Switch NO           -> switch LED+
-External D+         -> internal D+
-External D-         -> internal D-
-```
+## First-board checks
 
-With this wiring, one press latches the contacts closed and powers AirNode; the next press opens them and turns it off. Connecting LED+ to the switched side makes the ring illuminate only while AirNode is on. Ground and the USB data lines remain continuous and are not switched.
-
-The terminal arrangement is not standardized. Identify COM, NO, NC, LED+, and LED- from the supplied diagram or with a continuity meter before wiring. Leave NC unused. Confirm that the contact rating safely exceeds the complete device's measured 5 V current.
-
-### KiCad PCB connection: J_PWR
-
-The back of the PCB now includes the four-pin `J_PWR` wiring header:
-
-| J_PWR pad | Connect to |
-| --- | --- |
-| 1 | External USB-C VBUS |
-| 2 | Latching switch COM |
-| 3 | Latching switch NO and LED+ |
-| 4 | External USB-C GND and LED− |
-
-Pads 1 and 2 are connected by a wide raw-VBUS trace. Pad 3 feeds the board's `VIN (5.0v)` net only after the switch latches closed. Pad 4 connects to board ground. USB D+ and D− still run directly between the external female and internal male USB-C breakouts because the SuperMini module does not expose GPIO18 and GPIO19 on its headers.
-
-## Breakout dimensions and pad spacing
-
-The enclosure model supplied for the project indicates an approximate module body envelope of 8.5 mm × 11.5 mm. Web searches found many visually similar generic 16-pin USB-C breakout boards, but they use different PCB sizes and pad arrangements. No manufacturer drawing could be matched confidently to the exact board shown in the project images.
-
-The electrical solder-pad spacing is therefore deliberately marked **unverified**. Measure the physical breakout with calipers before creating a direct-solder PCB footprint. A generic 2.54 mm header should only be used when wires or a separate pin header connect the breakout.
-
-## Bring-up test
-
-1. With everything unpowered, verify VBUS, GND, D+, and D- continuity end to end.
-2. Verify there is no VBUS-to-GND short.
-3. Verify each CC pin measures approximately 5.1 kOhm to GND.
-4. Power from a current-limited USB source.
-5. Confirm that one press latches power on, the LED ring illuminates, and the next press removes power.
-6. Confirm the ESP32-C3 USB serial/JTAG device enumerates while the switch is on.
-7. Test firmware flashing before closing the enclosure.
+1. Inspect the USB shell tabs and six signal pads for solder bridges.
+2. Confirm each CC pin measures approximately 5.1 kOhm to GND.
+3. With the switch off, confirm `J_USB` VBUS reaches `J_PWR` pads 1 and 2 but not pad 3.
+4. Latch the switch on and confirm pad 3 and ESP32 5 V receive power.
+5. Confirm the LED ring polarity and that it turns off when the switch opens.
+6. Test firmware flashing through the SuperMini socket before closing the enclosure.

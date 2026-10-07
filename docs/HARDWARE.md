@@ -8,7 +8,7 @@
 - Corner radius: 8 mm
 - Copper layers: front and back
 - Controller: ESP32-C3 SuperMini module
-- Supply input: nominal 5 V through the SuperMini USB-C connector or the documented internal USB extension
+- Supply input: nominal 5 V through board-mounted `J_USB` and the latching switch, or through the SuperMini USB-C socket during development
 - Logic voltage: 3.3 V
 
 ## ESP32-C3 pin assignment
@@ -62,8 +62,8 @@ SW1 through SW4 connect their GPIO signal to ground when pressed. Firmware shoul
 - SCD40 is mounted on the back with clearance from the SHT40 area.
 - The module outlines still require verification with the exact purchased parts.
 
-## USB-C programming
+## USB-C power and programming
 
-The SuperMini's native USB data pins are GPIO18 (D−) and GPIO19 (D+), but the current module footprint does not expose them on the header rows. The enclosure connector therefore acts as an internal USB extension to a male USB-C breakout plugged into the SuperMini. A 16 mm illuminated latching switch interrupts VBUS so one press powers the device and the next turns it off. Ground, D+, and D− bypass the switch. See [USB-C-extension.md](USB-C-extension.md).
+`J_USB` is a GCT USB4125-03-C power-only receptacle mounted on the rear lower edge. Its two CC pins each use a 5.1 kOhm pull-down (`R_CC1` and `R_CC2`) so a USB-C source enables 5 V. Raw VBUS goes to `J_PWR` pads 1 and 2. The latching switch connects pad 2 (COM) to pad 3 (NO), and pad 3 feeds the board `VIN (5.0v)` net. Pad 4 is ground and LED−.
 
-The PCB implements the power connection on back-side header `J_PWR`: pad 1 is external USB VBUS, pad 2 is switch COM, pad 3 is switch NO plus LED+, and pad 4 is USB ground plus LED−. Pad 3 is routed to the ESP32-C3 5 V input with a 0.8 mm trace.
+The six-contact USB4125 does not contain D+ or D− contacts. The current SuperMini footprint also does not expose GPIO18/19, so firmware flashing remains through the USB-C socket on the ESP32-C3 SuperMini itself.

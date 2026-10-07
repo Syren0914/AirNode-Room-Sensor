@@ -15,7 +15,7 @@ Use a current-limited bench supply when possible. Stop if a component heats unex
 1. Remove plug-in sensor modules if sockets are used.
 2. Apply 5 V with a conservative current limit.
 3. Verify the board's 3.3 V rail before fitting sensors.
-4. Confirm the ESP32-C3 can be detected and programmed through its internal USB connection.
+4. Confirm the ESP32-C3 can be detected and programmed through the SuperMini's own USB-C socket.
 5. Disconnect power and investigate any abnormal current or heating.
 
 ## 3. Peripheral tests
@@ -36,7 +36,7 @@ Add and test one subsystem at a time:
 - Compare covered and uncovered SHT40 temperature to detect self-heating.
 - Check that SCD40 readings respond when occupied air reaches the vents.
 - Check that the SPS30 exhaust does not recirculate directly into its inlet.
-- Confirm that the external USB-C port supports both power and programming in both plug orientations.
+- Confirm that `J_USB` powers the board in both plug orientations. Use the SuperMini USB-C socket for programming.
 
 ## 5. Release checks still required
 
