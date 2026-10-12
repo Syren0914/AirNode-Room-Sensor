@@ -64,6 +64,8 @@ SW1 through SW4 connect their GPIO signal to ground when pressed. Firmware shoul
 
 ## USB-C power and programming
 
-`J_USB` is a GCT USB4125-03-C power-only receptacle mounted on the rear lower edge. Its two CC pins each use a 5.1 kOhm pull-down (`R_CC1` and `R_CC2`) so a USB-C source enables 5 V. Raw VBUS goes to `J_PWR` pads 1 and 2. The latching switch connects pad 2 (COM) to pad 3 (NO), and pad 3 feeds the board `VIN (5.0v)` net. Pad 4 is ground and LED−.
+`J_USB` is a GCT USB4125-GF-A (1.00 mm shell stake variant) power-only receptacle mounted on the rear lower edge. Its two CC pins each use a 5.1 kOhm pull-down (`R_CC1` and `R_CC2`) so a USB-C source enables 5 V. Raw VBUS goes to `J_PWR` pads 1 and 2. The latching switch connects pad 2 (COM) to pad 3 (NO), and pad 3 feeds the board `VIN (5.0v)` net. Pad 4 is ground and LED−.
 
 The six-contact USB4125 does not contain D+ or D− contacts. The current SuperMini footprint also does not expose GPIO18/19, so firmware flashing remains through the USB-C socket on the ESP32-C3 SuperMini itself.
+
+Use only one USB power source at a time. Do not connect separate powered cables to `J_USB` and the SuperMini USB-C socket simultaneously.

@@ -19,7 +19,7 @@ The current PCB places TFT1 1 mm to the right and 2 mm upward relative to the ea
 
 ## USB-C opening
 
-`J_USB` is a GCT USB4125-03-C receptacle mounted on the rear of the PCB at the lower board edge. The footprint places the connector mating edge on the 100 mm board boundary. Match the enclosure opening to the manufacturer drawing and verify the first assembled board before printing a production enclosure batch.
+`J_USB` is a GCT USB4125-GF-A (1.00 mm shell stake variant) receptacle mounted on the rear of the PCB at the lower board edge. The footprint places the connector mating edge on the 100 mm board boundary. Match the enclosure opening to the manufacturer drawing and verify the first assembled board before printing a production enclosure batch.
 
 Provide clearance for:
 

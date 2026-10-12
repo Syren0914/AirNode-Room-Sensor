@@ -3931,7 +3931,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "GCT USB4125-03-C USB-C Power Input"
+		(property "Value" "GCT USB4125-GF-A (1.00 mm shell stake)"
 			(at 0 -4.725 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -5401,14 +5401,6 @@
 		(uuid "b2a90084-7629-482f-8f8b-4c8c88453478")
 	)
 	(via
-		(at 135.12 66)
-		(size 1)
-		(drill 0.5)
-		(layers "F.Cu" "B.Cu")
-		(net "/CS")
-		(uuid "10000f25-0759-4ced-9729-db67d72696a5")
-	)
-	(via
 		(at 149 80)
 		(size 1)
 		(drill 0.5)
@@ -6233,6 +6225,22 @@
 		(uuid "f3cc2bed-3f00-409d-a67f-85f522c82121")
 	)
 	(segment
+		(start 121.5 140)
+		(end 124.0875 139.8)
+		(width 0.25)
+		(layer "B.Cu")
+		(net "/USB_CC1")
+		(uuid "5c955f82-6b66-4bcf-a261-add2f17afa44")
+	)
+	(segment
+		(start 121.5 143.045)
+		(end 121.5 140)
+		(width 0.25)
+		(layer "B.Cu")
+		(net "/USB_CC1")
+		(uuid "8d2ba748-deb1-4f72-808d-97e6d20da153")
+	)
+	(segment
 		(start 118.8 141.2)
 		(end 119 138)
 		(width 0.6)
@@ -6311,22 +6319,6 @@
 		(layer "B.Cu")
 		(net "/USB_VBUS_RAW")
 		(uuid "94235ebc-4b9a-4bb2-aa6d-1bd2b0912433")
-	)
-	(segment
-		(start 121.5 140)
-		(end 124.0875 139.8)
-		(width 0.25)
-		(layer "B.Cu")
-		(net "/USB_CC1")
-		(uuid "5c955f82-6b66-4bcf-a261-add2f17afa44")
-	)
-	(segment
-		(start 121.5 143.045)
-		(end 121.5 140)
-		(width 0.25)
-		(layer "B.Cu")
-		(net "/USB_CC1")
-		(uuid "8d2ba748-deb1-4f72-808d-97e6d20da153")
 	)
 	(segment
 		(start 120.5 140)
