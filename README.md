@@ -28,7 +28,7 @@ This repository records a working prototype and the next custom PCB revision. Th
 | --- | --- |
 | Schematic ERC | Pass: 0 violations |
 | PCB connectivity | Pass: 0 unconnected items |
-| PCB DRC | No shorts or clearance violations; one intentional dangling-via warning at the TFT CS layer transition |
+| PCB DRC | Pass: 0 violations and 0 unconnected pads |
 | Enclosure | Prototype printed and assembled; PCB fit still requires physical verification |
 | Firmware | Working prototype shown; source has not been added to this repository yet |
 | Sensor calibration | In progress |
@@ -42,6 +42,7 @@ This repository records a working prototype and the next custom PCB revision. Th
 - [Firmware status and requirements](docs/FIRMWARE.md)
 - [Enclosure and mechanical fit](docs/ENCLOSURE.md)
 - [Board-mounted USB-C power input](docs/USB-C-extension.md)
+- [Manufacturing audit](docs/MANUFACTURING-AUDIT.md)
 - [Bill of materials](BOM.csv)
 - [Change log](CHANGELOG.md)
 
