@@ -4,7 +4,7 @@ This project is under active development. Entries describe design progress and d
 
 ## Unreleased
 
-- Added a rear, board-mounted GCT USB4125-03-C USB-C power receptacle with dual 5.1 kOhm CC pull-downs and rerouted the latching-switch power path.
+- Added a rear, board-mounted GCT USB4125-GF-A (1.00 mm shell stake variant) USB-C power receptacle with dual 5.1 kOhm CC pull-downs and rerouted the latching-switch power path.
 - Documented that firmware flashing remains on the ESP32-C3 SuperMini USB-C socket.
 
 - Added a two-layer 70 mm × 100 mm PCB outline with 8 mm corner radii.

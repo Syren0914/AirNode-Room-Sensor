@@ -2,7 +2,7 @@
 
 ## Implemented connector
 
-The PCB now carries `J_USB`, a GCT USB4125-03-C USB-C receptacle, on the rear lower edge. It is a six-contact, power-only receptacle with VBUS, GND, CC1, and CC2 contacts. Its footprint is `Connector_USB:USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal`.
+The PCB now carries `J_USB`, a GCT USB4125-GF-A (1.00 mm shell stake variant) USB-C receptacle, on the rear lower edge. It is a six-contact, power-only receptacle with VBUS, GND, CC1, and CC2 contacts. Its footprint is `Connector_USB:USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal`.
 
 `R_CC1` and `R_CC2` are separate 5.1 kOhm, 1% 0805 pull-downs from CC1 and CC2 to ground. Do not join the two CC pins directly.
 
@@ -21,7 +21,7 @@ Pads 1 and 2 are linked by the PCB. When the switch latches, pad 3 receives 5 V 
 
 ## Programming limitation
 
-`J_USB` is power-only and cannot carry firmware data. The USB4125-03-C has no D+ or D− contacts, and the current ESP32-C3 SuperMini footprint does not expose its native USB pins GPIO18 and GPIO19. Program and monitor the board through the USB-C socket on the SuperMini.
+`J_USB` is power-only and cannot carry firmware data. The USB4125-GF-A (1.00 mm shell stake variant) has no D+ or D− contacts, and the current ESP32-C3 SuperMini footprint does not expose its native USB pins GPIO18 and GPIO19. Program and monitor the board through the USB-C socket on the SuperMini. Do not power `J_USB` and the SuperMini USB-C socket from two separate supplies at the same time; both sources can reach the board 5 V rail when the latching switch is on.
 
 ## First-board checks
 
